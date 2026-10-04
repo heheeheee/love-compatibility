@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사랑 궁합 테스트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="container">
+
+    <!-- 입력 화면 -->
+    <section id="input-section" class="card">
+
+        <div class="main-heart">♥</div>
+
+        <h1>사랑 궁합 테스트</h1>
+
+        <p class="subtitle">
+            두 사람은 얼마나 잘 맞을까요?
+        </p>
+
+        <div class="person">
+
+            <h2>나</h2>
+
+            <input
+                type="text"
+                id="name1"
+                placeholder="이름"
+                maxlength="10"
+            >
+
+            <label>생년월일</label>
+
+            <input
+                type="date"
+                id="birth1"
+            >
+
+        </div>
+
+
+        <div class="between-heart">♥</div>
+
+
+        <div class="person">
+
+            <h2>상대방</h2>
+
+            <input
+                type="text"
+                id="name2"
+                placeholder="이름"
+                maxlength="10"
+            >
+
+            <label>생년월일</label>
+
+            <input
+                type="date"
+                id="birth2"
+            >
+
+        </div>
+
+
+        <button onclick="calculateCompatibility()">
+            궁합 확인하기
+        </button>
+
+        <p class="notice">
+            ※ 재미로 보는 궁합 테스트입니다.
+        </p>
+
+    </section>
+
+
+    <!-- 결과 화면 -->
+    <section id="result-section" class="card result-card hidden">
+
+        <div class="result-heart">♥</div>
+
+        <p id="couple-name" class="couple-name"></p>
+
+        <p class="result-label">LOVE COMPATIBILITY</p>
+
+        <div class="score">
+            <span id="score">0</span>
+            <small>점</small>
+        </div>
+
+        <h2 id="result-title"></h2>
+
+        <p id="result-description" class="description"></p>
+
+
+        <!-- 하트 스탯 -->
+        <div class="heart-stat">
+
+    <div class="heart-meter">
+
+        <svg viewBox="0 0 200 180" class="heart-svg">
+
+            <!-- 하트 배경 -->
+            <path
+                class="heart-background"
+                d="M100 170
+                   C90 160 20 115 20 55
+                   C20 20 65 5 100 45
+                   C135 5 180 20 180 55
+                   C180 115 110 160 100 170Z"
+            />
+
+            <!-- 실제로 차오르는 하트 -->
+            <defs>
+                <clipPath id="heart-clip">
+
+                    <path
+                        d="M100 170
+                           C90 160 20 115 20 55
+                           C20 20 65 5 100 45
+                           C135 5 180 20 180 55
+                           C180 115 110 160 100 170Z"
+                    />
+
+                </clipPath>
+            </defs>
+
+            <rect
+                id="heart-fill"
+                x="0"
+                y="180"
+                width="200"
+                height="0"
+                class="heart-fill"
+                clip-path="url(#heart-clip)"
+            />
+
+        </svg>
+
+        <div class="heart-center">
+            <span id="average-score">0</span>
+            <small>점</small>
+        </div>
+
+    </div>
+
+</div>
+   
+
+
+            <div class="stat-list">
+
+                <div class="stat-item">
+
+                    <div class="stat-title">
+                        <span>❤️ 설렘</span>
+                        <strong id="love-score">0</strong>
+                    </div>
+
+                    <div class="stat-bar">
+                        <div id="love-bar"></div>
+                    </div>
+
+                    <p id="love-description"></p>
+
+                </div>
+
+
+                <div class="stat-item">
+
+                    <div class="stat-title">
+                        <span>💬 대화</span>
+                        <strong id="talk-score">0</strong>
+                    </div>
+
+                    <div class="stat-bar">
+                        <div id="talk-bar"></div>
+                    </div>
+
+                    <p id="talk-description"></p>
+
+                </div>
+
+
+                <div class="stat-item">
+
+                    <div class="stat-title">
+                        <span>🤝 신뢰</span>
+                        <strong id="trust-score">0</strong>
+                    </div>
+
+                    <div class="stat-bar">
+                        <div id="trust-bar"></div>
+                    </div>
+
+                    <p id="trust-description"></p>
+
+                </div>
+
+
+                <div class="stat-item">
+
+                    <div class="stat-title">
+                        <span>✨ 케미</span>
+                        <strong id="chemistry-score">0</strong>
+                    </div>
+
+                    <div class="stat-bar">
+                        <div id="chemistry-bar"></div>
+                    </div>
+
+                    <p id="chemistry-description"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 광고 자리 -->
+        <div class="ad-space">
+            광고 영역
+        </div>
+
+        <button class="share-button" onclick="shareResult()">
+    💌 궁합 결과 공유하기
+</button>
+
+        <button onclick="restartTest()">
+            다시 테스트하기
+        </button>
+
+        <p class="notice">
+            ※ 결과는 재미를 위한 콘텐츠입니다.
+        </p>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
